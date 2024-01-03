@@ -6,8 +6,10 @@ public class Laptop {
     }
     //Lazy way of creating singleton object
     public static Laptop getLaptop() {
-        if(laptop==null) {
-            laptop = new Laptop();
+        synchronized(Laptop.class) {
+            if (laptop == null) {
+                laptop = new Laptop();
+            }
         }
         return laptop;
     }
